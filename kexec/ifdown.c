@@ -27,6 +27,7 @@ char *v_ifdown = "@(#)ifdown.c  1.11  02-Jun-1998  miquels@cistron.nl";
  */
 int ifdown(void)
 {
+#if 0
 	struct if_nameindex *ifa, *ifp;
 	struct ifreq ifr;
 	int fd, shaper;
@@ -69,6 +70,6 @@ int ifdown(void)
 		}
 	}
 	close(fd);
-
+#endif
 	return 0;
 }

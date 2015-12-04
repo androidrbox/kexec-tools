@@ -226,7 +226,7 @@ static int read_cpu_properties(struct cpu_properties *cp,
 		return 1;
 	}
 
-	if (strcmp(cp->enable_method, "spin-table")) {
+	if (strcmp(cp->enable_method, "mt-boot")) {
 		cp->type = cpu_enable_method_unknown;
 		return -1;
 	}
@@ -624,7 +624,9 @@ int arm64_load_other_segments(struct kexec_info *info,
 	}
 
 	if (result && arm64_opts.dtb)
+	{
 		dtb_1 = dtb_2;
+	}
 	else if (!result && !arm64_opts.dtb)
 		dtb_2 = dtb_1;
 
